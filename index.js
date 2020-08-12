@@ -62,8 +62,7 @@ Your function should add the flavor to the front of the array and console.log th
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
 function addFlavor(icyMenu, icyFlavor) {
-    icyMenu.unshift(icyFlavor);
-    return icyMenu;
+    return icyMenu.unshift(icyFlavor);
     }
 
 console.log(addFlavor(originalFlavors, "Rainbow Sherbet"))
@@ -79,8 +78,7 @@ For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", 
 
 function removeLastFlavor(icyMenu){
 
-    icyMenu.pop();
-    return icyMenu;
+    return icyMenu.pop();
 
 }
 
@@ -116,13 +114,18 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(/*code here*/){
+function removeFlavorByName(icyMenu, flavor){
 
-    /*code here*/
+  for(let i = 0; i < icyMenu.length; i++){
+        if(icyMenu[i] === flavor){
+            icyMenu.splice(i,1);
+        }
+    }
+    return arr;
 
 }
 
-
+console.log(removeFlavorByName(originalFlavors, "Vanilla"));
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
 Your function should accept: 
@@ -133,7 +136,7 @@ and should return a new array that is identical to the old array. You can name t
 
 function copy(icyMenu, icyMenuBak){
 
-    icyMenu = icyMenuBak.slice();
+    icyMenu = [...icyMenuBak];
 
     return icyMenu;
 }
@@ -155,13 +158,17 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(/*code here*/){
-
-    /*code here*/
-
+function filterByWord(icyMenu, selector) {
+    let filteredArray = [];
+    for (let i = 0; i < icyMenu.length; i++) {
+      if (icyMenu[i].includes(selector)) {
+        filteredArray.push(icyMenu[i]);
+      }
+    }
+    return newArray;
 }
 
-
+console.log(filterByWord(originalFlavors, "Chocolate"));
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
 
